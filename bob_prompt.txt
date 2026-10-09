@@ -1,0 +1,125 @@
+ORIGINAL PROJECT PROMPT
+=======================
+
+Project: Library Usage Analytics
+Program: IBM SkillsBuild — Data Analytics
+
+--- PROMPT START ---
+
+I want to create a college-level data analytics project called:
+
+Library Usage Analytics
+
+Project focus:
+Book circulation, categories, members and borrowing trends.
+
+I want this project to be simple, realistic and suitable for an IBM SkillsBuild Data Analytics project.
+
+IMPORTANT DATA REQUIREMENTS:
+- Create a maximum of 20 borrowing records.
+- Do not create more than 20 data entries.
+- Use dates only from January 2026 to April 2026.
+- Use realistic library book titles.
+- Include different book categories such as Technology, Fiction, Self Help, Biography, Finance and History.
+- Include Member ID and Member Type.
+- Include Borrow Date, Return Date, Days Borrowed and Status.
+- Use Member IDs instead of real personal information.
+- Keep all calculations consistent with the dates.
+- The dataset should be realistic and easy to explain in a college presentation.
+
+Excel columns must be:
+
+Borrowing ID
+Book Title
+Category
+Member ID
+Member Type
+Borrow Date
+Return Date
+Days Borrowed
+Status
+
+The project should analyze:
+
+1. Book circulation
+2. Most borrowed books
+3. Borrowing by category
+4. Member borrowing activity
+5. Student vs Faculty borrowing
+6. Monthly borrowing trends
+7. Average days borrowed
+8. Key findings
+
+Create the following project structure:
+
+Library-Usage-Analytics/
+│
+├── data/
+│   ├── library_usage_data.xlsx
+│   └── library_usage_data.csv
+│
+├── analysis/
+│   └── library_usage_analysis.xlsx
+│
+├── charts/
+│
+├── docs/
+│   ├── project_report.md
+│   └── project_summary.md
+│
+├── README.md
+├── .gitignore
+└── bob_prompt.txt
+
+Excel requirements:
+
+Create library_usage_data.xlsx.
+
+The main sheet should be called "Circulation Data".
+
+Format the dataset as a proper Excel Table with filters and readable column widths.
+
+Create another sheet called "Analytics Summary".
+
+The Analytics Summary sheet should contain:
+- Total borrowing records
+- Unique members
+- Unique books
+- Average days borrowed
+- Most borrowed category
+- Monthly borrowing summary
+- Category-wise borrowing summary
+
+Add suitable Excel charts:
+- Borrowings by Category
+- Monthly Borrowing Trend
+
+Also create library_usage_data.csv.
+
+Create library_usage_analysis.xlsx containing the important analysis results.
+
+Create project_report.md explaining:
+- Project introduction
+- Dataset
+- Objectives
+- Book circulation analysis
+- Category analysis
+- Member analysis
+- Borrowing trends
+- Key findings
+- Conclusion
+- Future improvements
+
+Create a professional but simple README.md suitable for GitHub.
+
+Do not add unnecessary advanced features.
+
+Do not create a huge dataset.
+
+Keep the project understandable for a college student.
+
+Do not mention that the project is fake or generated.
+
+Do not add unnecessary AI-related wording to the project documentation.
+
+--- PROMPT END ---

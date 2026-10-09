@@ -1,0 +1,32 @@
+# Temporary Excel/Office files
+~$*.xlsx
+~$*.xls
+~$*.csv
+~$*.docx
+~$*.pptx
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Log files
+*.log
+
+# Python (if analysis scripts are added later)
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/

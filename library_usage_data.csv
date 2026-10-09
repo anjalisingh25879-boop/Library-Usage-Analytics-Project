@@ -1,0 +1,21 @@
+Borrowing ID,Book Title,Category,Member ID,Member Type,Borrow Date,Return Date,Days Borrowed,Status
+BRW001,Python Crash Course,Technology,M101,Student,03-Jan-2026,15-Jan-2026,12,Returned
+BRW002,To Kill a Mockingbird,Fiction,M102,Faculty,05-Jan-2026,20-Jan-2026,15,Returned
+BRW003,The Total Money Makeover,Finance,M103,Student,07-Jan-2026,21-Jan-2026,14,Returned
+BRW004,Sapiens: A Brief History,History,M104,Student,10-Jan-2026,25-Jan-2026,15,Returned
+BRW005,Atomic Habits,Self Help,M105,Faculty,12-Jan-2026,28-Jan-2026,16,Returned
+BRW006,Data Science from Scratch,Technology,M101,Student,20-Jan-2026,05-Feb-2026,16,Returned
+BRW007,The Alchemist,Fiction,M106,Student,22-Jan-2026,08-Feb-2026,17,Returned
+BRW008,Elon Musk,Biography,M107,Faculty,25-Jan-2026,10-Feb-2026,16,Returned
+BRW009,Rich Dad Poor Dad,Finance,M102,Faculty,01-Feb-2026,14-Feb-2026,13,Returned
+BRW010,The Power of Habit,Self Help,M108,Student,03-Feb-2026,18-Feb-2026,15,Returned
+BRW011,Clean Code,Technology,M103,Student,05-Feb-2026,20-Feb-2026,15,Returned
+BRW012,The Great Gatsby,Fiction,M109,Student,10-Feb-2026,25-Feb-2026,15,Returned
+BRW013,Steve Jobs,Biography,M105,Faculty,12-Feb-2026,01-Mar-2026,17,Returned
+BRW014,World History in Brief,History,M110,Student,20-Feb-2026,07-Mar-2026,15,Returned
+BRW015,Think and Grow Rich,Finance,M104,Student,01-Mar-2026,18-Mar-2026,17,Returned
+BRW016,Artificial Intelligence Basics,Technology,M106,Student,05-Mar-2026,22-Mar-2026,17,Returned
+BRW017,Deep Work,Self Help,M107,Faculty,10-Mar-2026,28-Mar-2026,18,Returned
+BRW018,The Diary of a Young Girl,Biography,M108,Student,15-Mar-2026,05-Apr-2026,21,Returned
+BRW019,Python Crash Course,Technology,M109,Student,01-Apr-2026,15-Apr-2026,14,Returned
+BRW020,Atomic Habits,Self Help,M110,Student,05-Apr-2026,,0,Borrowed

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Usage Analytics</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">📚</div>
+      <div>
+        <h1 class="header-title">Library Usage Analytics</h1>
+        <p class="header-sub">IBM SkillsBuild Data Analytics &nbsp;|&nbsp; January – April 2026</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main ───────────────────────────────────────────────── -->
+  <main class="container">
+
+    <!-- Loading / Error banners -->
+    <div id="loading-banner" class="banner banner-info" role="status">Loading data…</div>
+    <div id="error-banner"   class="banner banner-error" hidden role="alert"></div>
+
+    <!-- ── Summary Cards ──────────────────────────────────── -->
+    <section class="section" aria-labelledby="cards-heading">
+      <h2 id="cards-heading" class="section-title">Overview</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <div class="card-value" id="stat-total">—</div>
+          <div class="card-label">Total Borrowings</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <div class="card-value" id="stat-members">—</div>
+          <div class="card-label">Unique Members</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📖</div>
+          <div class="card-value" id="stat-books">—</div>
+          <div class="card-label">Unique Books</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <div class="card-value" id="stat-avg">—</div>
+          <div class="card-label">Avg. Days Borrowed</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <div class="card-value" id="stat-return">—</div>
+          <div class="card-label">Return Rate</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Charts Row 1 ───────────────────────────────────── -->
+    <section class="section" aria-labelledby="charts1-heading">
+      <h2 id="charts1-heading" class="section-title">Borrowing Analysis</h2>
+      <div class="charts-row">
+        <div class="chart-card">
+          <h3 class="chart-title">Borrowings by Category</h3>
+          <div class="chart-wrap">
+            <canvas id="chart-category" aria-label="Bar chart of borrowings by category"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3 class="chart-title">Monthly Borrowing Trend</h3>
+          <div class="chart-wrap">
+            <canvas id="chart-monthly" aria-label="Line chart of monthly borrowing trend"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Charts Row 2 ───────────────────────────────────── -->
+    <section class="section" aria-labelledby="charts2-heading">
+      <h2 id="charts2-heading" class="section-title">Member Activity</h2>
+      <div class="charts-row charts-row--single">
+        <div class="chart-card chart-card--wide">
+          <h3 class="chart-title">Student vs Faculty Borrowing</h3>
+          <div class="chart-wrap chart-wrap--doughnut">
+            <canvas id="chart-member" aria-label="Doughnut chart comparing student and faculty borrowing"></canvas>
+          </div>
+        </div>
+        <div class="chart-card chart-card--wide">
+          <h3 class="chart-title">Borrowings per Member</h3>
+          <div class="chart-wrap">
+            <canvas id="chart-per-member" aria-label="Bar chart of borrowings per member ID"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Records Table ──────────────────────────────────── -->
+    <section class="section" aria-labelledby="table-heading">
+      <h2 id="table-heading" class="section-title">Borrowing Records</h2>
+
+      <div class="table-controls">
+        <input
+          type="search"
+          id="table-search"
+          class="search-input"
+          placeholder="Search by title, category, member, or status…"
+          aria-label="Search borrowing records"
+        />
+        <div class="filter-group">
+          <select id="filter-category" class="filter-select" aria-label="Filter by category">
+            <option value="">All Categories</option>
+            <option>Technology</option>
+            <option>Fiction</option>
+            <option>Finance</option>
+            <option>History</option>
+            <option>Self Help</option>
+            <option>Biography</option>
+          </select>
+          <select id="filter-type" class="filter-select" aria-label="Filter by member type">
+            <option value="">All Members</option>
+            <option>Student</option>
+            <option>Faculty</option>
+          </select>
+          <select id="filter-status" class="filter-select" aria-label="Filter by status">
+            <option value="">All Statuses</option>
+            <option>Returned</option>
+            <option>Borrowed</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper" role="region" aria-label="Borrowing records table" tabindex="0">
+        <table class="records-table" id="records-table">
+          <thead>
+            <tr>
+              <th scope="col" data-col="id"          class="sortable" tabindex="0" aria-sort="none">ID</th>
+              <th scope="col" data-col="title"       class="sortable" tabindex="0" aria-sort="none">Book Title</th>
+              <th scope="col" data-col="category"    class="sortable" tabindex="0" aria-sort="none">Category</th>
+              <th scope="col" data-col="memberType"  class="sortable" tabindex="0" aria-sort="none">Member Type</th>
+              <th scope="col" data-col="borrowDate"  class="sortable" tabindex="0" aria-sort="none">Borrow Date</th>
+              <th scope="col" data-col="returnDate"  class="sortable" tabindex="0" aria-sort="none">Return Date</th>
+              <th scope="col" data-col="daysBorrowed"class="sortable" tabindex="0" aria-sort="none">Days</th>
+              <th scope="col" data-col="status"      class="sortable" tabindex="0" aria-sort="none">Status</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Filled by script.js -->
+          </tbody>
+        </table>
+      </div>
+      <p id="table-count" class="table-count" aria-live="polite"></p>
+    </section>
+
+    <!-- ── Key Findings ───────────────────────────────────── -->
+    <section class="section" aria-labelledby="findings-heading">
+      <h2 id="findings-heading" class="section-title">Key Findings</h2>
+      <ul class="findings-list" id="findings-list">
+        <li class="finding-item">
+          <span class="finding-icon">📌</span>
+          <span><strong>Technology is the most borrowed category</strong>, accounting for 25% of all borrowings — reflecting strong student interest in programming and data science.</span>
+        </li>
+        <li class="finding-item">
+          <span class="finding-icon">📈</span>
+          <span><strong>January had the highest borrowing activity</strong> (8 records, 40%), consistent with the start of the academic semester.</span>
+        </li>
+        <li class="finding-item">
+          <span class="finding-icon">👤</span>
+          <span><strong>All 10 members borrowed equally</strong> — every member completed exactly 2 borrowing events during the period.</span>
+        </li>
+        <li class="finding-item">
+          <span class="finding-icon">🎓</span>
+          <span><strong>Students account for 70% of borrowing activity</strong> (14 of 20 records), with Faculty contributing the remaining 30%.</span>
+        </li>
+        <li class="finding-item">
+          <span class="finding-icon">⭐</span>
+          <span><strong>Two books were borrowed more than once</strong>: <em>Python Crash Course</em> (Technology) and <em>Atomic Habits</em> (Self Help).</span>
+        </li>
+        <li class="finding-item">
+          <span class="finding-icon">⏱️</span>
+          <span><strong>The average loan duration is 15.7 days</strong>, showing members make effective use of the standard two-week borrowing window.</span>
+        </li>
+        <li class="finding-item">
+          <span class="finding-icon">✔️</span>
+          <span><strong>Return rate stands at 95%</strong> — 19 of 20 books returned on time, indicating responsible borrowing behaviour.</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>Library Usage Analytics &nbsp;|&nbsp; IBM SkillsBuild Data Analytics Project &nbsp;|&nbsp; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
